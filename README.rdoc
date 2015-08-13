@@ -1,3 +1,2 @@
-.
-.
+
 git clone https://github.com/nihatbasmaci/basmaci.herokuapp.com.git
