@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= @question.title %>  <small class="help-block alt-bilgi"><i class="fa fa-clock-o"></i> <%= link_to time_ago_in_words(@question.created_at), @question %> <i class="fa fa-user"></i> <%= @question.user.profile.full_name %></small>
+  </div>
+  <div class="panel-body">
+     <%= @question.content %>
+  </div>
+</div>
+
+<% @question.answers.each do |answer| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+    <i class="fa fa-user"></i> <%= answer.user.profile.full_name %> - <i class="fa fa-clock-o"></i> <%= link_to time_ago_in_words(answer.created_at), answer %> 
+    <% if user_signed_in? && current_user == answer.user %>
+          - <span class="duzenle"><i class="fa fa-pencil"></i> <%= link_to "Düzenle", edit_answer_path(answer) %> </span>
+          <span class="sil"><i class="fa fa-trash-o"></i> <%= link_to "Sil", answer, method: :delete, data: {confirm: "Emin misin?"} %></span>
+        <% end %> 
+    </div>
+    <div class="panel-body">
+        <%= answer.comment %>
+    </div>
+  </div>
+<% end %>
+
+<%= render 'answers/new' %>
+<%= link_to "Geri", root_path, class: "btn btn-warning" %>

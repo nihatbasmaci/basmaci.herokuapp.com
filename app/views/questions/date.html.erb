@@ -1,0 +1,11 @@
+<%= render 'date' %>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <ul class="list-group">
+      <% @date.each do |date| %>
+        <li class="list-group-item"><%= link_to date.title, question_path(date) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

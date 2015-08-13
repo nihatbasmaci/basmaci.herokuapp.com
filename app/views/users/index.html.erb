@@ -1,0 +1,4 @@
+<% @users.each do |user| %>
+	
+	<%=link_to user.email , profile_path(user) %> - <%= user.profile.first_name %>- <%= user.profile.last_name %> - <%= user.profile.phone %><br>
+<%end%>

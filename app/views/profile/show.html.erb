@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= image_tag @profile.avatar.url, height: '126', width: '185'  %>
+  </div>
+  <div class="col-md-9">
+    <ul class="list-group">
+      <li class="list-group-item"><%= t('name') %>: <%= @profile.first_name %></li>
+      <li class="list-group-item">Soyisim: <%= @profile.last_name %></li>
+      <li class="list-group-item">Telefon: <%= @profile.phone %></li>
+      <li class="list-group-item">Email: <%= @profile.user.email %></li>
+    </ul>
+  </div>  
+</div>
+
+<%= link_to "Profilimi Düzenle", edit_profile_path ,class: "btn btn-default" if current_user == @profile.user %>
+
+<%= link_to "Geri", root_path, class: "btn btn-warning" %>

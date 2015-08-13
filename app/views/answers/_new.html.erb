@@ -1,0 +1,6 @@
+<%= simple_form_for :answer, url: answers_path do |f| %>
+  <%= f.input :comment, label: "Cevap" , placeholder: "Cevabınızı yazınız.."%>
+  <%= f.hidden_field :question_id, value: @question.id %>
+
+  <%= f.submit "Kaydet", class: "btn btn-primary" %>
+<% end %>
